@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: cloud-consumer-service
+  datasource:
+    #类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #mysql驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #数据库连接
+    url: jdbc:mysql://localhost:3306/db2023?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    #数据库用户名密码
+    username: root
+    password: 123456
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

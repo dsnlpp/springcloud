@@ -38,7 +38,7 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/find/{id}")
-    public CommonResult<Payment> find(@PathVariable Integer id)
+    public CommonResult<Payment> find(@PathVariable("id") Integer id)
     {
         Payment payment = paymentDaoServiceImpl.queryById(id);
         log.info("*****查询结果为"+payment);
