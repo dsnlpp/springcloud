@@ -6,22 +6,22 @@ package com.lpp.springcloud.service;/*
 
 */
 
-import impl.MyHystrix;
+import com.lpp.springcloud.service.impl.HystrixServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Component
-@FeignClient(value = "FeignClient-1",fallback = MyHystrix.class)
+@FeignClient(value = "CLOUD-HYSTRIX-PAYMENT",fallback = HystrixServiceImpl.class)
 public interface HystrixService {
 
 
-    @GetMapping("/consumer/payment/query/{id}")
+    @GetMapping("/payment/query/{id}")
     public String find(@PathVariable("id") long id);
 
 
-    @GetMapping("/consumer/payment/insert/{id}")
+    @GetMapping("/payment/insert/{id}")
     public String insert(@PathVariable("id") long id);
 
 }
