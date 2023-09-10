@@ -20,13 +20,13 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @PostMapping("/order/create")
+    @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment)
     {
         return restTemplate.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);
     }
 
-    @GetMapping("/order/find/{id}")
+    @GetMapping("/consumer/payment/find/{id}")
     public CommonResult<Payment> find(@PathVariable("id") int id)
     {
         return restTemplate.getForObject(PAYMENT_URL+"/payment/find/"+id,CommonResult.class);
